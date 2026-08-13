@@ -11,7 +11,7 @@
 
 package com.mediroute.mediroutebackend.common.models.repository; // Declares the package this interface belongs to
 
-import com.mediroute.common.models.NetworkNode; // Imports the NetworkNode entity this repository manages
+import com.mediroute.mediroutebackend.common.models.NetworkNode; // Imports the NetworkNode entity this repository manages
 import org.springframework.data.jpa.repository.JpaRepository; // Imports the Spring Data base interface that provides built-in CRUD methods
 import org.springframework.stereotype.Repository; // Imports the annotation that registers this interface as a Spring-managed bean
 
