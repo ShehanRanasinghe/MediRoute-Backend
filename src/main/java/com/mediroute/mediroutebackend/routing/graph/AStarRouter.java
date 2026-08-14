@@ -6,24 +6,6 @@ import com.mediroute.routing.model.RouteResult;
 
 import java.util.*;
 
-/**
- * A* search algorithm - like Dijkstra, but uses a heuristic estimate of the
- * remaining distance to the destination to explore more promising nodes first.
- *
- * f(n) = g(n) + h(n)
- *   g(n) = actual distance travelled so far from source to n
- *   h(n) = estimated straight-line (Haversine) distance from n to destination
- *
- * Because h(n) never overestimates the true remaining distance, this
- * heuristic is "admissible", which guarantees A* still finds the optimal
- * path - just faster in practice than plain Dijkstra.
- *
- * Time complexity : same worst case as Dijkstra O((V + E) log V),
- *                    but typically visits far fewer nodes in practice.
- * Space complexity: O(V + E)
- *
-
- */
 public class AStarRouter {
 
     public RouteResult findShortestPath(Graph graph, Long sourceId, Long destinationId) {
@@ -35,13 +17,15 @@ public class AStarRouter {
         Map<Long, Long> previous = new HashMap<>();
         Set<Long> visited = new HashSet<>();
 
+        // Initialize distances to infinity
         for (Node node : graph.getAllNodes()) {
             gScore.put(node.getId(), Double.MAX_VALUE);
         }
         gScore.put(sourceId, 0.0);
 
-        PriorityQueue<NodeScore> openSet =
-                new PriorityQueue<>(Comparator.comparingDouble(ns -> ns.fScore));
+        // Priority queue sorted by fScore (f = g + h)
+        PriorityQueue<NodeScore> openSet = new PriorityQueue<>(Comparator.comparingDouble(ns -> ns.fScore));
+
         openSet.add(new NodeScore(sourceId, heuristic(graph.getNode(sourceId), destinationNode)));
 
         while (!openSet.isEmpty()) {
@@ -52,6 +36,7 @@ public class AStarRouter {
             }
             visited.add(current.nodeId);
 
+            // Reached destination
             if (current.nodeId.equals(destinationId)) {
                 break;
             }
@@ -60,11 +45,15 @@ public class AStarRouter {
                 if (visited.contains(edge.getTargetNodeId())) {
                     continue;
                 }
+
+                // Calculate tentative gScore
                 double tentativeG = gScore.get(current.nodeId) + edge.getDistanceKm();
+
                 if (tentativeG < gScore.get(edge.getTargetNodeId())) {
                     gScore.put(edge.getTargetNodeId(), tentativeG);
                     previous.put(edge.getTargetNodeId(), current.nodeId);
 
+                    // Add node with fScore = gScore + heuristic
                     double h = heuristic(graph.getNode(edge.getTargetNodeId()), destinationNode);
                     openSet.add(new NodeScore(edge.getTargetNodeId(), tentativeG + h));
                 }
@@ -78,6 +67,8 @@ public class AStarRouter {
         result.setExecutionTimeNanos(endTime - startTime);
 
         Double finalDistance = gScore.get(destinationId);
+
+        // Handle no path found
         if (finalDistance == null || finalDistance == Double.MAX_VALUE) {
             result.setPathFound(false);
             result.setPath(Collections.emptyList());
@@ -91,6 +82,7 @@ public class AStarRouter {
         return result;
     }
 
+    // Haversine formula to calculate straight-line distance
     private double heuristic(Node a, Node b) {
         final double EARTH_RADIUS_KM = 6371.0;
 
@@ -101,12 +93,13 @@ public class AStarRouter {
 
         double h = Math.sin(deltaLat / 2) * Math.sin(deltaLat / 2)
                 + Math.cos(lat1) * Math.cos(lat2)
-                * Math.sin(deltaLon / 2) * Math.sin(deltaLon / 2);
+                        * Math.sin(deltaLon / 2) * Math.sin(deltaLon / 2);
         double c = 2 * Math.atan2(Math.sqrt(h), Math.sqrt(1 - h));
 
         return EARTH_RADIUS_KM * c;
     }
 
+    // Reconstruct route backward from destination to source
     private List<Long> reconstructPath(Map<Long, Long> previous, Long sourceId, Long destinationId) {
         LinkedList<Long> path = new LinkedList<>();
         Long current = destinationId;
