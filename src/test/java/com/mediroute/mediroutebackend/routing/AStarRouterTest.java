@@ -1,7 +1,9 @@
-package com.mediroute.routing.graph;
+package com.mediroute.mediroutebackend.routing;
 
-import com.mediroute.routing.model.Node;
-import com.mediroute.routing.model.RouteResult;
+import com.mediroute.mediroutebackend.routing.graph.AStarRouter;
+import com.mediroute.mediroutebackend.routing.graph.Graph;
+import com.mediroute.mediroutebackend.routing.model.Node;
+import com.mediroute.mediroutebackend.routing.model.RouteResult;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
