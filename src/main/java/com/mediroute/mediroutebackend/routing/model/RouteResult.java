@@ -1,4 +1,4 @@
-package com.mediroute.routing.model;
+package com.mediroute.mediroutebackend.routing.model;
 
 import java.util.List;
 

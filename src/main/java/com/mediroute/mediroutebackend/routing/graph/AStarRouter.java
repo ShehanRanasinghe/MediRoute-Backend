@@ -1,8 +1,8 @@
-package com.mediroute.routing.graph;
+package com.mediroute.mediroutebackend.routing.graph;
 
-import com.mediroute.routing.model.Edge;
-import com.mediroute.routing.model.Node;
-import com.mediroute.routing.model.RouteResult;
+import com.mediroute.mediroutebackend.routing.model.Edge;
+import com.mediroute.mediroutebackend.routing.model.Node;
+import com.mediroute.mediroutebackend.routing.model.RouteResult;
 
 import java.util.*;
 

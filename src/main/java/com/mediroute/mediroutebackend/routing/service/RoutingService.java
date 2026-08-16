@@ -1,12 +1,12 @@
 package com.mediroute.mediroutebackend.routing.service;
 
-import com.mediroute.routing.graph.AStarRouter;
+import com.mediroute.mediroutebackend.routing.graph.AStarRouter;
 import com.mediroute.mediroutebackend.routing.graph.DijkstraRouter;
 import com.mediroute.mediroutebackend.routing.graph.Graph;
 import com.mediroute.mediroutebackend.routing.graph.GraphLoaderService;
 import com.mediroute.mediroutebackend.routing.model.Node;
-import com.mediroute.routing.model.RouteRequest;
-import com.mediroute.routing.model.RouteResult;
+import com.mediroute.mediroutebackend.routing.model.RouteRequest;
+import com.mediroute.mediroutebackend.routing.model.RouteResult;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -17,6 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired; // Imports @Autow
 import org.springframework.http.ResponseEntity; // Imports ResponseEntity to wrap responses with HTTP status codes
 import org.springframework.web.bind.annotation.*; // Imports @RestController, @RequestMapping, @GetMapping, @PostMapping, @RequestBody
 
+import com.mediroute.mediroutebackend.routing.model.RouteRequest; // Imports RouteRequest DTO used as @RequestBody in POST endpoints
+import com.mediroute.mediroutebackend.routing.model.RouteResult;  // Imports RouteResult DTO returned from routing computations
+import com.mediroute.mediroutebackend.routing.service.RoutingService; // Imports RoutingService bean to be injected via @Autowired
+
 import java.util.Map; // Imports Map to hold the paired Dijkstra + A* results returned by the compare endpoint
 
 @RestController // Marks this class as a REST controller; every method return value is written directly to the HTTP response body as JSON
