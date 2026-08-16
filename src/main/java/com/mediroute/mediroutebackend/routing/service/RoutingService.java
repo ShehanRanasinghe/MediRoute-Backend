@@ -1,10 +1,10 @@
-package com.mediroute.routing.service;
+package com.mediroute.mediroutebackend.routing.service;
 
 import com.mediroute.routing.graph.AStarRouter;
-import com.mediroute.routing.graph.DijkstraRouter;
-import com.mediroute.routing.graph.Graph;
-import com.mediroute.routing.graph.GraphLoaderService;
-import com.mediroute.routing.model.Node;
+import com.mediroute.mediroutebackend.routing.graph.DijkstraRouter;
+import com.mediroute.mediroutebackend.routing.graph.Graph;
+import com.mediroute.mediroutebackend.routing.graph.GraphLoaderService;
+import com.mediroute.mediroutebackend.routing.model.Node;
 import com.mediroute.routing.model.RouteRequest;
 import com.mediroute.routing.model.RouteResult;
 import jakarta.annotation.PostConstruct;
