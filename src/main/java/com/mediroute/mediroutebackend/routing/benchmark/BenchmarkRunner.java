@@ -1,9 +1,9 @@
-package com.mediroute.routing.benchmark;
+package com.mediroute.mediroutebackend.routing.benchmark;
 
-import com.mediroute.routing.graph.AStarRouter;
-import com.mediroute.routing.graph.DijkstraRouter;
-import com.mediroute.routing.graph.Graph;
-import com.mediroute.routing.model.RouteResult;
+import com.mediroute.mediroutebackend.routing.graph.AStarRouter;
+import com.mediroute.mediroutebackend.routing.graph.DijkstraRouter;
+import com.mediroute.mediroutebackend.routing.graph.Graph;
+import com.mediroute.mediroutebackend.routing.model.RouteResult;
 
 import java.io.FileWriter;
 import java.io.IOException;
