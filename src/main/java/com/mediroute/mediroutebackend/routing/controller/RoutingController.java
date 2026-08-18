@@ -21,6 +21,8 @@ import com.mediroute.mediroutebackend.routing.model.RouteRequest; // Imports Rou
 import com.mediroute.mediroutebackend.routing.model.RouteResult;  // Imports RouteResult DTO returned from routing computations
 import com.mediroute.mediroutebackend.routing.service.RoutingService; // Imports RoutingService bean to be injected via @Autowired
 
+import java.util.Collection; // Imports Collection to return the nodes from the /nodes endpoint
+import java.util.List; // Imports List to return an ordered collection of nodes from the /nodes endpoint
 import java.util.Map; // Imports Map to hold the paired Dijkstra + A* results returned by the compare endpoint
 
 @RestController // Marks this class as a REST controller; every method return value is written directly to the HTTP response body as JSON
@@ -34,6 +36,11 @@ public class RoutingController { // Defines the controller class that handles al
     public String ping() { // Returns a plain-text status message confirming the module is alive and showing graph size
         return "Routing module is alive. Graph has " + routingService.getGraph().nodeCount()
                 + " nodes and " + routingService.getGraph().edgeCount() + " edges."; // Reads node and edge counts from the in-memory Graph to confirm Supabase data was loaded
+    }
+
+    @GetMapping("/nodes") // Maps HTTP GET /api/routing/nodes; returns every network node so the frontend can populate route-form dropdowns from real DB data
+    public ResponseEntity<Collection<com.mediroute.mediroutebackend.routing.model.Node>> getNodes() { // Returns all Node objects currently held in the in-memory graph (loaded from network_node table or fallback)
+        return ResponseEntity.ok(routingService.getGraph().getAllNodes()); // Delegates to Graph.getAllNodes() which returns all registered Node instances
     }
 
     @PostMapping("/shortest-path") // Maps HTTP POST /api/routing/shortest-path to this method; the default algorithm (Dijkstra) is used
