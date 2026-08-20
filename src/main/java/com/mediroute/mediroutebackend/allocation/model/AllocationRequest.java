@@ -14,6 +14,7 @@ public class AllocationRequest {
         this.incidentId = incidentId;
         this.conditionType = conditionType;
         this.severityScore = severityScore;
+        this.resourceUnitsNeeded = resourceUnitsNeeded;
     }
 
     public Long getIncidentId() { return incidentId; }
