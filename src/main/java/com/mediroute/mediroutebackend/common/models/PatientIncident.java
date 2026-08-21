@@ -50,26 +50,107 @@ public class PatientIncident {
     @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    public PatientIncident() {}
+    /** Creates an empty incident entity with its default status and creation time. */
+    public PatientIncident() {
+    }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public String getPatientReference() { return patientReference; }
-    public void setPatientReference(String patientReference) { this.patientReference = patientReference; }
-    public double getLatitude() { return latitude; }
-    public void setLatitude(double latitude) { this.latitude = latitude; }
-    public double getLongitude() { return longitude; }
-    public void setLongitude(double longitude) { this.longitude = longitude; }
-    public String getConditionType() { return conditionType; }
-    public void setConditionType(String conditionType) { this.conditionType = conditionType; }
-    public int getSeverityScore() { return severityScore; }
-    public void setSeverityScore(int severityScore) { this.severityScore = severityScore; }
-    public IncidentStatus getStatus() { return status; }
-    public void setStatus(IncidentStatus status) { this.status = status; }
-    public Hospital getAssignedHospital() { return assignedHospital; }
-    public void setAssignedHospital(Hospital assignedHospital) { this.assignedHospital = assignedHospital; }
-    public Resource getAssignedResource() { return assignedResource; }
-    public void setAssignedResource(Resource assignedResource) { this.assignedResource = assignedResource; }
-    public LocalDateTime getCreatedAt() { return createdAt; }
-    public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
+    /** Returns the database identifier of this patient incident. */
+    public Long getId() {
+        return id;
+    }
+
+    /** Updates the database identifier of this patient incident. */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /** Returns the external reference used to identify the patient. */
+    public String getPatientReference() {
+        return patientReference;
+    }
+
+    /** Updates the external reference used to identify the patient. */
+    public void setPatientReference(String patientReference) {
+        this.patientReference = patientReference;
+    }
+
+    /** Returns the latitude of the reported incident location. */
+    public double getLatitude() {
+        return latitude;
+    }
+
+    /** Updates the latitude of the reported incident location. */
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
+    }
+
+    /** Returns the longitude of the reported incident location. */
+    public double getLongitude() {
+        return longitude;
+    }
+
+    /** Updates the longitude of the reported incident location. */
+    public void setLongitude(double longitude) {
+        this.longitude = longitude;
+    }
+
+    /** Returns the type of medical condition reported for the patient. */
+    public String getConditionType() {
+        return conditionType;
+    }
+
+    /** Updates the type of medical condition reported for the patient. */
+    public void setConditionType(String conditionType) {
+        this.conditionType = conditionType;
+    }
+
+    /** Returns the triage severity score used to prioritize this incident. */
+    public int getSeverityScore() {
+        return severityScore;
+    }
+
+    /** Updates the triage severity score used to prioritize this incident. */
+    public void setSeverityScore(int severityScore) {
+        this.severityScore = severityScore;
+    }
+
+    /** Returns the current dispatch status of this incident. */
+    public IncidentStatus getStatus() {
+        return status;
+    }
+
+    /** Updates the current dispatch status of this incident. */
+    public void setStatus(IncidentStatus status) {
+        this.status = status;
+    }
+
+    /** Returns the hospital selected to receive the patient. */
+    public Hospital getAssignedHospital() {
+        return assignedHospital;
+    }
+
+    /** Assigns the hospital selected to receive the patient. */
+    public void setAssignedHospital(Hospital assignedHospital) {
+        this.assignedHospital = assignedHospital;
+    }
+
+    /** Returns the medical resource assigned to this incident. */
+    public Resource getAssignedResource() {
+        return assignedResource;
+    }
+
+    /** Assigns the medical resource responsible for this incident. */
+    public void setAssignedResource(Resource assignedResource) {
+        this.assignedResource = assignedResource;
+    }
+
+    /** Returns the date and time when this incident was recorded. */
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    /** Updates the date and time when this incident was recorded. */
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
 }

@@ -35,20 +35,77 @@ public class Hospital {
     @Column(name = "available_icu_beds", nullable = false)
     private int availableIcuBeds;
 
-    public Hospital() {}
+    /** Creates an empty hospital entity for JPA and data binding. */
+    public Hospital() {
+    }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public NetworkNode getNode() { return node; }
-    public void setNode(NetworkNode node) { this.node = node; }
-    public String getSpecialty() { return specialty; }
-    public void setSpecialty(String specialty) { this.specialty = specialty; }
-    public int getTotalBeds() { return totalBeds; }
-    public void setTotalBeds(int totalBeds) { this.totalBeds = totalBeds; }
-    public int getAvailableBeds() { return availableBeds; }
-    public void setAvailableBeds(int availableBeds) { this.availableBeds = availableBeds; }
-    public int getTotalIcuBeds() { return totalIcuBeds; }
-    public void setTotalIcuBeds(int totalIcuBeds) { this.totalIcuBeds = totalIcuBeds; }
-    public int getAvailableIcuBeds() { return availableIcuBeds; }
-    public void setAvailableIcuBeds(int availableIcuBeds) { this.availableIcuBeds = availableIcuBeds; }
+    /** Returns the database identifier of this hospital. */
+    public Long getId() {
+        return id;
+    }
+
+    /** Updates the database identifier of this hospital. */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /** Returns the routing-network node where this hospital is located. */
+    public NetworkNode getNode() {
+        return node;
+    }
+
+    /** Assigns the routing-network node where this hospital is located. */
+    public void setNode(NetworkNode node) {
+        this.node = node;
+    }
+
+    /** Returns the medical specialty offered by this hospital. */
+    public String getSpecialty() {
+        return specialty;
+    }
+
+    /** Updates the medical specialty offered by this hospital. */
+    public void setSpecialty(String specialty) {
+        this.specialty = specialty;
+    }
+
+    /** Returns the hospital's total number of standard beds. */
+    public int getTotalBeds() {
+        return totalBeds;
+    }
+
+    /** Updates the hospital's total number of standard beds. */
+    public void setTotalBeds(int totalBeds) {
+        this.totalBeds = totalBeds;
+    }
+
+    /** Returns the number of standard beds currently available. */
+    public int getAvailableBeds() {
+        return availableBeds;
+    }
+
+    /** Updates the number of standard beds currently available. */
+    public void setAvailableBeds(int availableBeds) {
+        this.availableBeds = availableBeds;
+    }
+
+    /** Returns the hospital's total number of intensive-care beds. */
+    public int getTotalIcuBeds() {
+        return totalIcuBeds;
+    }
+
+    /** Updates the hospital's total number of intensive-care beds. */
+    public void setTotalIcuBeds(int totalIcuBeds) {
+        this.totalIcuBeds = totalIcuBeds;
+    }
+
+    /** Returns the number of intensive-care beds currently available. */
+    public int getAvailableIcuBeds() {
+        return availableIcuBeds;
+    }
+
+    /** Updates the number of intensive-care beds currently available. */
+    public void setAvailableIcuBeds(int availableIcuBeds) {
+        this.availableIcuBeds = availableIcuBeds;
+    }
 }
