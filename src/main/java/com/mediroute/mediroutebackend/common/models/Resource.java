@@ -35,16 +35,57 @@ public class Resource {
     @Column(nullable = false, length = 20)
     private ResourceStatus status = ResourceStatus.AVAILABLE;
 
-    public Resource() {}
+    /** Creates an empty resource entity with an available default status. */
+    public Resource() {
+    }
 
-    public Long getId() { return id; }
-    public void setId(Long id) { this.id = id; }
-    public ResourceType getResourceType() { return resourceType; }
-    public void setResourceType(ResourceType resourceType) { this.resourceType = resourceType; }
-    public OwnerType getOwnerType() { return ownerType; }
-    public void setOwnerType(OwnerType ownerType) { this.ownerType = ownerType; }
-    public Long getOwnerId() { return ownerId; }
-    public void setOwnerId(Long ownerId) { this.ownerId = ownerId; }
-    public ResourceStatus getStatus() { return status; }
-    public void setStatus(ResourceStatus status) { this.status = status; }
+    /** Returns the database identifier of this medical resource. */
+    public Long getId() {
+        return id;
+    }
+
+    /** Updates the database identifier of this medical resource. */
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    /** Returns the category that describes this medical resource. */
+    public ResourceType getResourceType() {
+        return resourceType;
+    }
+
+    /** Updates the category that describes this medical resource. */
+    public void setResourceType(ResourceType resourceType) {
+        this.resourceType = resourceType;
+    }
+
+    /** Returns the type of facility that owns this resource. */
+    public OwnerType getOwnerType() {
+        return ownerType;
+    }
+
+    /** Updates the type of facility that owns this resource. */
+    public void setOwnerType(OwnerType ownerType) {
+        this.ownerType = ownerType;
+    }
+
+    /** Returns the identifier of the hospital or depot that owns this resource. */
+    public Long getOwnerId() {
+        return ownerId;
+    }
+
+    /** Updates the identifier of the hospital or depot that owns this resource. */
+    public void setOwnerId(Long ownerId) {
+        this.ownerId = ownerId;
+    }
+
+    /** Returns the current operational status of this resource. */
+    public ResourceStatus getStatus() {
+        return status;
+    }
+
+    /** Updates the current operational status of this resource. */
+    public void setStatus(ResourceStatus status) {
+        this.status = status;
+    }
 }

@@ -5,11 +5,11 @@ package com.mediroute.mediroutebackend.common.models;
  * Why: Dispatchers must know whether a resource is ready for use.
  * How: The current value controls whether the resource can be assigned.
  */
-public enum ResourceStatus { 
+public enum ResourceStatus {
     /** Ready to be assigned to an incident. */
-    AVAILABLE, 
+    AVAILABLE,
     /** Currently assigned or otherwise operationally occupied. */
-    IN_USE, 
+    IN_USE,
     /** Temporarily unavailable while undergoing maintenance. */
-    MAINTENANCE 
+    MAINTENANCE
 }

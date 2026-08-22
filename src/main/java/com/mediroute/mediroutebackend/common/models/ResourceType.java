@@ -5,13 +5,13 @@ package com.mediroute.mediroutebackend.common.models;
  * Why: Different incidents and hospitals require different resources.
  * How: Each resource uses one value to identify its purpose.
  */
-public enum ResourceType { 
+public enum ResourceType {
     /** Emergency transport vehicle. */
-    AMBULANCE, 
+    AMBULANCE,
     /** Bed equipped for intensive care. */
-    ICU_BED, 
+    ICU_BED,
     /** Standard inpatient ward bed. */
-    WARD_BED, 
+    WARD_BED,
     /** Mechanical breathing-support device. */
-    VENTILATOR 
+    VENTILATOR
 }
