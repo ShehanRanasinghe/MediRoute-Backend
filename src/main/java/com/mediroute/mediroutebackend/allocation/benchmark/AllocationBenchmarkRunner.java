@@ -1,9 +1,9 @@
 package com.mediroute.mediroutebackend.allocation.benchmark;
 
-import com.mediroute.allocation.algorithm.GreedyAllocator;
-import com.mediroute.allocation.algorithm.KnapsackAllocator;
-import com.mediroute.allocation.model.AllocationRequest;
-import com.mediroute.allocation.model.AllocationResult;
+import com.mediroute.mediroutebackend.allocation.algorithm.GreedyAllocator;
+import com.mediroute.mediroutebackend.allocation.algorithm.KnapsackAllocator;
+import com.mediroute.mediroutebackend.allocation.model.AllocationRequest;
+import com.mediroute.mediroutebackend.allocation.model.AllocationResult;
 
 import java.io.FileWriter;
 import java.io.IOException;

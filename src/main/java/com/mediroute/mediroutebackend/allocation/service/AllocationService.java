@@ -1,15 +1,15 @@
 package com.mediroute.mediroutebackend.allocation.service;
 
-import com.mediroute.allocation.algorithm.GreedyAllocator;
-import com.mediroute.allocation.algorithm.KnapsackAllocator;
-import com.mediroute.allocation.model.AllocationRequest;
-import com.mediroute.allocation.model.AllocationResult;
-import com.mediroute.common.models.IncidentStatus;
-import com.mediroute.common.models.PatientIncident;
-import com.mediroute.common.models.ResourceStatus;
-import com.mediroute.common.models.ResourceType;
-import com.mediroute.common.models.repository.PatientIncidentRepository;
-import com.mediroute.common.models.repository.ResourceRepository;
+import com.mediroute.mediroutebackend.allocation.algorithm.GreedyAllocator;
+import com.mediroute.mediroutebackend.allocation.algorithm.KnapsackAllocator;
+import com.mediroute.mediroutebackend.allocation.model.AllocationRequest;
+import com.mediroute.mediroutebackend.allocation.model.AllocationResult;
+import com.mediroute.mediroutebackend.common.models.IncidentStatus;
+import com.mediroute.mediroutebackend.common.models.PatientIncident;
+import com.mediroute.mediroutebackend.common.models.ResourceStatus;
+import com.mediroute.mediroutebackend.common.models.ResourceType;
+import com.mediroute.mediroutebackend.common.models.repository.PatientIncidentRepository;
+import com.mediroute.mediroutebackend.common.models.repository.ResourceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
