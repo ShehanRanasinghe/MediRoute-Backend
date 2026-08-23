@@ -18,7 +18,10 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-/** Provides REST API endpoints for the Resource Allocation module. */
+/**
+ * Exposes resource-allocation operations over HTTP and translates invalid client
+ * input into {@code 400 Bad Request} responses before invoking the service layer.
+ */
 @RestController
 @RequestMapping("/api/allocation")
 public class AllocationController {
@@ -29,7 +32,10 @@ public class AllocationController {
         this.allocationService = allocationService;
     }
 
-    /** Confirms that the module is running and can retrieve pending incidents. */
+    /**
+     * Provides a lightweight health check that also verifies access to pending
+     * incident data.
+     */
     @GetMapping("/ping")
     public ResponseEntity<String> ping() {
         int pendingCount = allocationService.getPendingIncidents().size();
@@ -40,13 +46,16 @@ public class AllocationController {
         return ResponseEntity.ok(message);
     }
 
-    /** Returns incidents currently waiting for resource allocation. */
+    /** Returns all incidents currently waiting for resource allocation. */
     @GetMapping("/pending-requests")
     public ResponseEntity<List<PatientIncident>> getPendingRequests() {
         return ResponseEntity.ok(allocationService.getPendingIncidents());
     }
 
-    /** Runs the allocation algorithm selected by the client. */
+    /**
+     * Allocates the available resources of the requested type using the algorithm
+     * selected by the client.
+     */
     @PostMapping("/assign")
     public ResponseEntity<AllocationResult> assign(
             @RequestBody AllocationRequestDTO request) {
@@ -59,7 +68,10 @@ public class AllocationController {
         return ResponseEntity.ok(result);
     }
 
-    /** Runs Greedy and Knapsack against the same incidents and capacity. */
+    /**
+     * Runs Greedy and Knapsack against the same pending incidents and resource
+     * capacity so their results can be compared fairly.
+     */
     @PostMapping("/compare")
     public ResponseEntity<Map<String, AllocationResult>> compare(
             @RequestBody AllocationRequestDTO request) {
@@ -69,6 +81,10 @@ public class AllocationController {
         return ResponseEntity.ok(allocationService.compareAlgorithms(resourceType));
     }
 
+    /**
+     * Normalizes user input before mapping it to the domain enum, allowing values
+     * such as "ambulance" and "AMBULANCE" to be treated consistently.
+     */
     private ResourceType parseResourceType(String resourceType) {
         try {
             return ResourceType.valueOf(resourceType.trim().toUpperCase(Locale.ROOT));
@@ -79,6 +95,10 @@ public class AllocationController {
         }
     }
 
+    /**
+     * Validates fields shared by allocation requests. The comparison endpoint
+     * does not require an algorithm because it always executes both algorithms.
+     */
     private void validateRequest(
             AllocationRequestDTO request,
             boolean algorithmRequired) {
