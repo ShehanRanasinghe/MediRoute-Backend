@@ -1,7 +1,7 @@
-package com.mediroute.decision.algorithm;
+package com.mediroute.mediroutebackend.decision.algorithm;
 
-import com.mediroute.decision.model.HospitalRecommendation;
-import com.mediroute.decision.model.RecommendationResult;
+import com.mediroute.mediroutebackend.decision.model.HospitalRecommendation;
+import com.mediroute.mediroutebackend.decision.model.RecommendationResult;
 
 import java.util.*;
 
@@ -13,7 +13,6 @@ import java.util.*;
  * top-k set - the comparison here is purely about SPEED, not correctness
  * or optimality (see docs/07-experimental-evaluation.md).
  *
- * Owner: Manura
  */
 public class HospitalRecommender {
 

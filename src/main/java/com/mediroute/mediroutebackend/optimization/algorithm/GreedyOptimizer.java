@@ -1,11 +1,9 @@
 package com.mediroute.mediroutebackend.optimization.algorithm;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.PriorityQueue;
+import java.util.*;
+import com.mediroute.mediroutebackend.optimization.model.DispatchItem;
+import com.mediroute.mediroutebackend.optimization.model.OptimizationResult;
 
-import com.mediroute.mediroutebackend.routing.model.DispatchItem;
-import com.mediroute.mediroutebackend.routing.model.OptimizationResult;
 
 public class GreedyOptimizer {
 

@@ -1,4 +1,4 @@
-package com.mediroute.decision.algorithm;
+package com.mediroute.mediroutebackend.decision.algorithm;
 
 /**
  * Computes a single weighted "suitability score" for a hospital, combining

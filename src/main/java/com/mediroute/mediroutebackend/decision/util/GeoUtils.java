@@ -1,4 +1,4 @@
-package com.mediroute.decision.util;
+package com.mediroute.mediroutebackend.decision.util;
 
 /**
  * Haversine formula - great-circle (straight-line) distance in km between

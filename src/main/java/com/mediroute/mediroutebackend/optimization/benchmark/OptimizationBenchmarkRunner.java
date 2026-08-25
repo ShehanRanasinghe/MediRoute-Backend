@@ -10,8 +10,8 @@ import java.util.Random;
 import com.mediroute.mediroutebackend.optimization.algorithm.BacktrackingOptimizer;
 import com.mediroute.mediroutebackend.optimization.algorithm.GreedyOptimizer;
 import com.mediroute.mediroutebackend.optimization.algorithm.KnapsackDPOptimizer;
-import com.mediroute.mediroutebackend.routing.model.DispatchItem;
-import com.mediroute.mediroutebackend.routing.model.OptimizationResult;
+import com.mediroute.mediroutebackend.optimization.model.DispatchItem;
+import com.mediroute.mediroutebackend.optimization.model.OptimizationResult;
 
 public class OptimizationBenchmarkRunner {
 

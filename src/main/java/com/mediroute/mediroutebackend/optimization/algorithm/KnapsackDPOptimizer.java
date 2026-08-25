@@ -1,7 +1,7 @@
 package com.mediroute.mediroutebackend.optimization.algorithm;
 
-import com.mediroute.mediroutebackend.routing.model.DispatchItem;
-import com.mediroute.mediroutebackend.routing.model.OptimizationResult;
+import com.mediroute.mediroutebackend.optimization.model.DispatchItem;
+import com.mediroute.mediroutebackend.optimization.model.OptimizationResult;
 
 import java.util.*;
 
