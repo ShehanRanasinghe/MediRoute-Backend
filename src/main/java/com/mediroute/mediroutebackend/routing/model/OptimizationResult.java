@@ -29,3 +29,5 @@ public class OptimizationResult {
     public String getAlgorithmUsed() { return algorithmUsed; }
     public void setAlgorithmUsed(String algorithmUsed) { this.algorithmUsed = algorithmUsed; }
 }
+
+
