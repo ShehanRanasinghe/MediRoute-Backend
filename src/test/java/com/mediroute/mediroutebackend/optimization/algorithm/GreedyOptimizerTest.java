@@ -1,16 +1,13 @@
-package com.mediroute.mediroutebackend;
+package com.mediroute.mediroutebackend.optimization.algorithm;
+
+import com.mediroute.mediroutebackend.optimization.model.DispatchItem;
+import com.mediroute.mediroutebackend.optimization.model.OptimizationResult;
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import org.junit.jupiter.api.Test;
-
-import com.mediroute.mediroutebackend.optimization.algorithm.GreedyOptimizer;
-import com.mediroute.mediroutebackend.optimization.algorithm.KnapsackDPOptimizer;
-import com.mediroute.mediroutebackend.routing.model.DispatchItem;
-import com.mediroute.mediroutebackend.routing.model.OptimizationResult;
-
 
 class GreedyOptimizerTest {
 
@@ -19,6 +16,10 @@ class GreedyOptimizerTest {
 
     @Test
     void greedyCanBeSuboptimalComparedToExactOptimizers() {
+        // Item 1: value 10, weight 3 (density 3.33)
+        // Items 2+3: value 6 each, weight 2 each (density 3.0 each)
+        // Capacity 4: Greedy takes item 1 alone (value 10, density-first).
+        // Optimal (DP/Backtracking) takes items 2+3 instead (value 12).
         List<DispatchItem> items = List.of(
                 new DispatchItem(1L, "A", 10, 3),
                 new DispatchItem(2L, "B", 6, 2),

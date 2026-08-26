@@ -1,9 +1,7 @@
-package com.mediroute.mediroutebackend;
+package com.mediroute.mediroutebackend.optimization.algorithm;
 
-import com.mediroute.mediroutebackend.optimization.algorithm.BacktrackingOptimizer;
-import com.mediroute.mediroutebackend.optimization.algorithm.KnapsackDPOptimizer;
-import com.mediroute.mediroutebackend.routing.model.DispatchItem;
-import com.mediroute.mediroutebackend.routing.model.OptimizationResult;
+import com.mediroute.mediroutebackend.optimization.model.DispatchItem;
+import com.mediroute.mediroutebackend.optimization.model.OptimizationResult;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -12,6 +10,11 @@ import java.util.Random;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+/**
+ * Confirms Backtracking is genuinely EXACT by cross-checking it against
+ * KnapsackDPOptimizer - both must always agree, since both compute the
+ * true optimal value, just via different search strategies.
+ */
 class BacktrackingOptimizerTest {
 
     private final BacktrackingOptimizer backtracking = new BacktrackingOptimizer();
@@ -36,7 +39,7 @@ class BacktrackingOptimizerTest {
 
         for (int trial = 0; trial < 10; trial++) {
             List<DispatchItem> items = new ArrayList<>();
-            int itemCount = 5 + random.nextInt(8);
+            int itemCount = 5 + random.nextInt(8); // small enough to stay fast
             for (long i = 1; i <= itemCount; i++) {
                 items.add(new DispatchItem(i, "Item" + i, 1 + random.nextInt(15), 1 + random.nextInt(8)));
             }

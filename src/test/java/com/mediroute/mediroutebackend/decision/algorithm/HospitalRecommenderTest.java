@@ -1,7 +1,7 @@
-package com.mediroute.decision.algorithm;
+package com.mediroute.mediroutebackend.decision.algorithm;
 
-import com.mediroute.decision.model.HospitalRecommendation;
-import com.mediroute.decision.model.RecommendationResult;
+import com.mediroute.mediroutebackend.decision.model.HospitalRecommendation;
+import com.mediroute.mediroutebackend.decision.model.RecommendationResult;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

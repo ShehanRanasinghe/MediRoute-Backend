@@ -1,0 +1,13 @@
+item_count,algorithm,execution_time_ms,total_value,capacity_used
+10,Dynamic Programming,0.0886,105,29
+10,Greedy,1.2454,105,29
+10,Backtracking,0.6337,105,29
+15,Dynamic Programming,0.0853,127,44
+15,Greedy,0.0542,127,44
+15,Backtracking,0.0728,127,44
+20,Dynamic Programming,0.2013,176,60
+20,Greedy,0.1063,172,58
+20,Backtracking,0.1482,176,60
+25,Dynamic Programming,0.2702,230,75
+25,Greedy,0.1137,226,73
+25,Backtracking,0.2161,230,75

@@ -1,0 +1,11 @@
+graph_size,algorithm,execution_time_ms,result_count
+50,DFS Articulation Points,2.4792,4
+50,Prim's MST,6.0638,49
+200,DFS Articulation Points,1.5833,1
+200,Prim's MST,1.8235,199
+500,DFS Articulation Points,8.5257,3
+500,Prim's MST,3.739,499
+1000,DFS Articulation Points,6.847,1
+1000,Prim's MST,4.4919,999
+5000,DFS Articulation Points,24.6725,0
+5000,Prim's MST,15.3652,4999

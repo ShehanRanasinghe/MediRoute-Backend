@@ -1,7 +1,7 @@
 package com.mediroute.mediroutebackend.allocation.algorithm;
 
-import com.mediroute.allocation.model.AllocationRequest;
-import com.mediroute.allocation.model.AllocationResult;
+import com.mediroute.mediroutebackend.allocation.model.AllocationRequest;
+import com.mediroute.mediroutebackend.allocation.model.AllocationResult;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;

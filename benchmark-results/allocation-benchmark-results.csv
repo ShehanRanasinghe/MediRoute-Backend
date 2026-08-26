@@ -1,0 +1,9 @@
+request_count,algorithm,execution_time_ms,total_value,capacity_used,quality_gap_percent
+10,Greedy,10.2412,12,2,0.0
+10,Knapsack DP,0.0602,12,2,0.0
+50,Greedy,0.8022,78,12,0.0
+50,Knapsack DP,0.1077,78,12,0.0
+200,Greedy,2.9228,313,50,0.0
+200,Knapsack DP,2.0027,313,50,0.0
+1000,Greedy,7.0093,1540,250,0.0
+1000,Knapsack DP,18.2247,1540,250,0.0

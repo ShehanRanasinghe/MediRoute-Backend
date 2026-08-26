@@ -1,0 +1,11 @@
+candidate_count,algorithm,execution_time_ms,k
+50,Bounded Min-Heap Top-K,3.4067,5
+50,Full Sort,0.7164,5
+200,Bounded Min-Heap Top-K,0.3972,5
+200,Full Sort,0.3358,5
+1000,Bounded Min-Heap Top-K,0.9106,5
+1000,Full Sort,1.1586,5
+5000,Bounded Min-Heap Top-K,1.4012,5
+5000,Full Sort,6.2233,5
+20000,Bounded Min-Heap Top-K,10.1332,5
+20000,Full Sort,23.8564,5

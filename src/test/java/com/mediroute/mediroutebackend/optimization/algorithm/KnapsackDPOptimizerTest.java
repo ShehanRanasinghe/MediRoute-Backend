@@ -1,14 +1,18 @@
-package com.mediroute.mediroutebackend;
+package com.mediroute.mediroutebackend.optimization.algorithm;
 
-import com.mediroute.mediroutebackend.optimization.algorithm.KnapsackDPOptimizer;
-import com.mediroute.mediroutebackend.routing.model.DispatchItem;
-import com.mediroute.mediroutebackend.routing.model.OptimizationResult;
+import com.mediroute.mediroutebackend.optimization.model.DispatchItem;
+import com.mediroute.mediroutebackend.optimization.model.OptimizationResult;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Classic textbook 0/1 knapsack instance (same one used in Task 2, for
+ * consistency): Items (weight, value): (2,3), (3,4), (4,5); capacity 5.
+ * Optimal: items 1+2 (weight 2+3=5, value 3+4=7).
+ */
 class KnapsackDPOptimizerTest {
 
     private final KnapsackDPOptimizer optimizer = new KnapsackDPOptimizer();
