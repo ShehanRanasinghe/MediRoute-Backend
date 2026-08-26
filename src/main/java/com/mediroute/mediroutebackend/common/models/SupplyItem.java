@@ -2,10 +2,15 @@ package com.mediroute.mediroutebackend.common.models;
 
 import jakarta.persistence.*;
 
-enum SupplyItemStatus {
-    PENDING, IN_TRANSIT, DELIVERED, CANCELLED
-}
-
+/**
+ * A medical supply crate or scheduled patient transfer task waiting to be
+ * loaded onto an ambulance/vehicle at a depot - the "item" in the
+ * knapsack sense for Task 5's optimization problem.
+ *
+ * NOTE: this is the first shared entity across all 5 modules that needs a
+ * genuinely NEW database table - Tasks 2, 3, and 4 all reused tables
+ * Task 1 already created. See database/schema-addition-task5.sql.
+ */
 @Entity
 @Table(name = "supply_item")
 public class SupplyItem {
