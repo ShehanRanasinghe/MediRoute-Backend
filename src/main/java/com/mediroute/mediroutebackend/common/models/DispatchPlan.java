@@ -17,8 +17,9 @@ public class DispatchPlan {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "incident_id")
-    private Long incidentId;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "incident_id")
+    private PatientIncident incident;
 
     @Column(name = "algorithm_used", length = 50)
     private String algorithmUsed;
@@ -39,8 +40,8 @@ public class DispatchPlan {
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
-    public Long getIncidentId() { return incidentId; }
-    public void setIncidentId(Long incidentId) { this.incidentId = incidentId; }
+    public PatientIncident getIncident() { return incident; }
+    public void setIncident(PatientIncident incident) { this.incident = incident; }
     public String getAlgorithmUsed() { return algorithmUsed; }
     public void setAlgorithmUsed(String algorithmUsed) { this.algorithmUsed = algorithmUsed; }
     public int getTotalValueAchieved() { return totalValueAchieved; }

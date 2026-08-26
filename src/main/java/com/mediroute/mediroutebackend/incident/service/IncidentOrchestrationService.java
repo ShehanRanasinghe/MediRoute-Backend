@@ -124,7 +124,7 @@ public class IncidentOrchestrationService {
                 // Step 5: Optimization module - only meaningful once a real
                 // vehicle has actually been reserved for this trip.
                 OptimizationResult optimizationResult = optimizationService.optimize(DEFAULT_VEHICLE_CAPACITY, "dp");
-                dispatchPlan = persistAndBuildDispatchPlan(incident.getId(), optimizationResult);
+                dispatchPlan = persistAndBuildDispatchPlan(incident, optimizationResult);
             } else {
                 // Safety net: AllocationService said "allocated" based on a
                 // count, but no physical AVAILABLE resource actually exists.
@@ -190,9 +190,9 @@ public class IncidentOrchestrationService {
                 .orElse(null);
     }
 
-    private DispatchPlanView persistAndBuildDispatchPlan(Long incidentId, OptimizationResult result) {
+    private DispatchPlanView persistAndBuildDispatchPlan(PatientIncident incident, OptimizationResult result) {
         DispatchPlan plan = new DispatchPlan();
-        plan.setIncidentId(incidentId);
+        plan.setIncident(incident);
         plan.setAlgorithmUsed(result.getAlgorithmUsed());
         plan.setTotalValueAchieved(result.getTotalValueAchieved());
         plan.setCapacityUsed(result.getCapacityUsed());
@@ -204,13 +204,13 @@ public class IncidentOrchestrationService {
 
         List<String> names = new ArrayList<>();
         for (Long itemId : result.getSelectedItemIds()) {
-            DispatchPlanItem planItem = new DispatchPlanItem();
-            planItem.setDispatchPlanId(plan.getId());
-            planItem.setSupplyItemId(itemId);
-            dispatchPlanItemRepository.save(planItem);
-
             SupplyItem item = itemsById.get(itemId);
             if (item != null) {
+                DispatchPlanItem planItem = new DispatchPlanItem();
+                planItem.setDispatchPlan(plan);
+                planItem.setSupplyItem(item);
+                dispatchPlanItemRepository.save(planItem);
+
                 names.add(item.getItemName());
                 // FIX: mark as LOADED so the next incident's optimization
                 // run sees a smaller pending pool - this is what makes
