@@ -1,10 +1,10 @@
-package com.mediroute.network.benchmark;
+package com.mediroute.mediroutebackend.network.benchmark;
 
-import com.mediroute.network.algorithm.ArticulationPointFinder;
-import com.mediroute.network.algorithm.MSTBuilder;
-import com.mediroute.network.model.CriticalNodeResult;
-import com.mediroute.network.model.MSTResult;
-import com.mediroute.routing.graph.Graph;
+import com.mediroute.mediroutebackend.network.algorithm.ArticulationPointFinder;
+import com.mediroute.mediroutebackend.network.algorithm.MSTBuilder;
+import com.mediroute.mediroutebackend.network.model.CriticalNodeResult;
+import com.mediroute.mediroutebackend.network.model.MSTResult;
+import com.mediroute.mediroutebackend.routing.graph.Graph;
 
 import java.io.FileWriter;
 import java.io.IOException;
@@ -16,8 +16,6 @@ import java.io.PrintWriter;
  *
  * Confirms the theoretical O(V+E) claim for articulation point detection
  * empirically, and shows how MST construction time grows with graph size.
- *
- * Owner: Janiru
  */
 public class NetworkBenchmarkRunner {
 

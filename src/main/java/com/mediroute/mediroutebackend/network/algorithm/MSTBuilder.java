@@ -1,10 +1,10 @@
-package com.mediroute.network.algorithm;
+package com.mediroute.mediroutebackend.network.algorithm;
 
-import com.mediroute.network.model.MSTEdgeDTO;
-import com.mediroute.network.model.MSTResult;
-import com.mediroute.routing.graph.Graph;
-import com.mediroute.routing.model.Edge;
-import com.mediroute.routing.model.Node;
+import com.mediroute.mediroutebackend.network.model.MSTEdgeDTO;
+import com.mediroute.mediroutebackend.network.model.MSTResult;
+import com.mediroute.mediroutebackend.routing.graph.Graph;
+import com.mediroute.mediroutebackend.routing.model.Edge;
+import com.mediroute.mediroutebackend.routing.model.Node;
 
 import java.util.*;
 

@@ -1,8 +1,8 @@
-package com.mediroute.network.algorithm;
+package com.mediroute.mediroutebackend.network.algorithm;
 
-import com.mediroute.network.model.CriticalNodeResult;
-import com.mediroute.routing.graph.Graph;
-import com.mediroute.routing.model.Edge;
+import com.mediroute.mediroutebackend.network.model.CriticalNodeResult;
+import com.mediroute.mediroutebackend.routing.graph.Graph;
+import com.mediroute.mediroutebackend.routing.model.Edge;
 
 import java.util.*;
 
@@ -29,8 +29,6 @@ import java.util.*;
  *
  * Time complexity : O(V + E) - each node and edge visited once.
  * Space complexity: O(V) for the discovery/low/parent maps and the stack.
- *
- * Owner: Ahamed
  */
 public class ArticulationPointFinder {
 

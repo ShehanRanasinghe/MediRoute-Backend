@@ -1,4 +1,4 @@
-package com.mediroute.network.model;
+package com.mediroute.mediroutebackend.network.model;
 
 import java.util.List;
 

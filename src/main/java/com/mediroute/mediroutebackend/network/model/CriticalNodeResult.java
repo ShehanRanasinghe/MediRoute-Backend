@@ -1,4 +1,4 @@
-package com.mediroute.network.model;
+package com.mediroute.mediroutebackend.network.model;
 
 import java.util.List;
 
@@ -7,8 +7,6 @@ import java.util.List;
  * A critical node is one whose removal would disconnect part of the
  * hospital/road network - e.g. a junction that is the ONLY route to a
  * hospital.
- *
- * Owner: Ahamed
  */
 public class CriticalNodeResult {
 

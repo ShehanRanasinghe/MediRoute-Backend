@@ -1,4 +1,4 @@
-package com.mediroute.network.model;
+package com.mediroute.mediroutebackend.network.model;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import java.util.List;
  * connect directly to it) - used for regional referral planning (which
  * hospitals are the most "connected" hubs).
  *
- */
+  */
 public class CentralityResult {
 
     private List<NodeCentrality> rankedNodes; // sorted highest degree first

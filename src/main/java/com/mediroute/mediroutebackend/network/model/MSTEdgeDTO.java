@@ -1,4 +1,4 @@
-package com.mediroute.network.model;
+package com.mediroute.mediroutebackend.network.model;
 
 public class MSTEdgeDTO {
 

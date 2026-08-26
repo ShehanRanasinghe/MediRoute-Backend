@@ -1,14 +1,14 @@
-package com.mediroute.network.service;
+package com.mediroute.mediroutebackend.network.service;
 
-import com.mediroute.network.algorithm.ArticulationPointFinder;
-import com.mediroute.network.algorithm.CentralityCalculator;
-import com.mediroute.network.algorithm.MSTBuilder;
-import com.mediroute.network.model.CentralityResult;
-import com.mediroute.network.model.CriticalNodeResult;
-import com.mediroute.network.model.MSTResult;
-import com.mediroute.routing.graph.Graph;
-import com.mediroute.routing.graph.GraphLoaderService;
-import com.mediroute.routing.model.Node;
+import com.mediroute.mediroutebackend.network.algorithm.ArticulationPointFinder;
+import com.mediroute.mediroutebackend.network.algorithm.CentralityCalculator;
+import com.mediroute.mediroutebackend.network.algorithm.MSTBuilder;
+import com.mediroute.mediroutebackend.network.model.CentralityResult;
+import com.mediroute.mediroutebackend.network.model.CriticalNodeResult;
+import com.mediroute.mediroutebackend.network.model.MSTResult;
+import com.mediroute.mediroutebackend.routing.graph.Graph;
+import com.mediroute.mediroutebackend.routing.graph.GraphLoaderService;
+import com.mediroute.mediroutebackend.routing.model.Node;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

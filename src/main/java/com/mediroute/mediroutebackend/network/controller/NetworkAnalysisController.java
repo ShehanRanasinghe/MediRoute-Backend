@@ -1,9 +1,9 @@
-package com.mediroute.network.controller;
+package com.mediroute.mediroutebackend.network.controller;
 
-import com.mediroute.network.model.CentralityResult;
-import com.mediroute.network.model.CriticalNodeResult;
-import com.mediroute.network.model.MSTResult;
-import com.mediroute.network.service.NetworkAnalysisService;
+import com.mediroute.mediroutebackend.network.model.CentralityResult;
+import com.mediroute.mediroutebackend.network.model.CriticalNodeResult;
+import com.mediroute.mediroutebackend.network.model.MSTResult;
+import com.mediroute.mediroutebackend.network.service.NetworkAnalysisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
