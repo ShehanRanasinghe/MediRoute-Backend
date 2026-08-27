@@ -6,6 +6,8 @@ import com.mediroute.mediroutebackend.routing.model.RouteResult;
 
 import java.util.*;
 
+// This router uses A* search to find the shortest path by combining the known cost with an estimated remaining distance.
+// It is faster than Dijkstra in many large graphs because it directs the search toward the destination instead of exploring all nodes equally.
 public class AStarRouter {
 
     public RouteResult findShortestPath(Graph graph, Long sourceId, Long destinationId) {

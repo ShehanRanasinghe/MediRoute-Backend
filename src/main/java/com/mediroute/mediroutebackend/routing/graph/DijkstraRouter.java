@@ -1,17 +1,6 @@
-// WHAT: Implements Dijkstra's shortest-path algorithm over the in-memory Graph to find the minimum-distance
-//       route between any two network nodes (hospitals, depots, junctions) in the MediRoute system.
-
-// WHY: Ambulance dispatch requires the shortest road route in real time; Dijkstra guarantees the globally
-//      optimal result for graphs with non-negative edge weights (road distances are always >= 0).
-//      It is one of the two algorithms compared by the routing module (the other being A*), letting
-//      RoutingService and the frontend /compare endpoint show both results side-by-side.
-
-// HOW: Uses a min-heap (PriorityQueue) ordered by tentative distance so the node with the smallest
-//      known distance is always processed next, giving O((V + E) log V) time and O(V + E) space.
-//      At each step the algorithm relaxes outgoing edges, updating the distance map and predecessor
-//      map whenever a shorter path is found. Once the destination is settled, reconstructPath()
-//      walks the predecessor map backwards from destination to source to build the ordered path list.
-
+// This router finds the shortest route between two network points using Dijkstra's algorithm.
+// It works on the graph data already loaded into memory and returns the path, total distance, and execution time.
+// This is the safe default route method because it guarantees the best route for valid road networks.
 
 package com.mediroute.mediroutebackend.routing.graph; // Declares the package this class belongs to
 

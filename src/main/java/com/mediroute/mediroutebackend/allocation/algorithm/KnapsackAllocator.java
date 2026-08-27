@@ -6,6 +6,8 @@ import com.mediroute.mediroutebackend.allocation.model.AllocationResult;
 import java.util.*;
 
 
+// This allocator solves the emergency allocation problem with dynamic programming so it can choose the best set of incidents under a limited resource capacity.
+// It is the optimal comparison point for the faster greedy approach and is used when the system needs the strongest possible allocation result.
 public class KnapsackAllocator {
 
     public AllocationResult allocate(List<AllocationRequest> requests, int totalCapacity) {

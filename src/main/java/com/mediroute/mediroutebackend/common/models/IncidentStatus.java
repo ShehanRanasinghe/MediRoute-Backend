@@ -1,10 +1,8 @@
 package com.mediroute.mediroutebackend.common.models;
 
-/**
- * What: Lists the possible states of a patient incident.
- * Why: A clear status is needed to track dispatch progress.
- * How: The incident moves through these values from creation to completion.
- */
+// This enum tracks the lifecycle of an incident from first report to completion.
+// Each status shows the current stage of the response and helps the system decide which next action to take.
+// It is used across services to keep the incident state consistent throughout dispatch and follow-up.
 public enum IncidentStatus {
     /** The incident is awaiting resource and hospital allocation. */
     PENDING,

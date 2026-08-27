@@ -12,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+// This benchmark compares greedy and knapsack allocation performance as the number of pending incidents grows.
+// It records timing and quality differences so the project can explain why the faster method is sometimes less optimal.
 public class AllocationBenchmarkRunner {
 
     private static final int[] REQUEST_COUNTS = {10, 50, 200, 1000};

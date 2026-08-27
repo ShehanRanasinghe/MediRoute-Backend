@@ -11,8 +11,10 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
+// This service clears the operational data created during demos so the system can be reset to a clean state.
+// It restores incidents, resources, and dispatch plans without removing the static hospital or network infrastructure.
+
 /**
- * Answers "how do I reset pending incidents?" - clears everything the demo
  * created and restores the system to a clean starting state:
  *   - all reported incidents deleted (queue back to empty)
  *   - all resources (ambulances, beds, etc.) back to AVAILABLE

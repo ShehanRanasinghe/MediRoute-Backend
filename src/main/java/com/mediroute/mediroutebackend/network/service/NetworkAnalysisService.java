@@ -12,11 +12,7 @@ import com.mediroute.mediroutebackend.routing.model.Node;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- * Loads the shared network graph (same Supabase data Task 1 uses) and runs
- * all three network analysis algorithms on it.
- *
- */
+//Loads the shared network graph (same Supabase data Task 1 uses) and runs all three network analysis algorithms on it.
 @Service
 public class NetworkAnalysisService {
 

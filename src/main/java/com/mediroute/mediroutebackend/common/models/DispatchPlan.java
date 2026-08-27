@@ -3,12 +3,8 @@ package com.mediroute.mediroutebackend.common.models;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
-/**
- * A permanent record of one dispatch decision: which incident it was for,
- * which algorithm chose the loadout, and the resulting value/capacity
- * numbers. Previously this information existed only in memory for the
- * duration of one HTTP request and was never saved.
- */
+// A permanent record of one dispatch decision: which incident it was for, which algorithm chose the loadout, and the resulting value/capacity numbers. 
+// Previously this information existed only in memory for the duration of one HTTP request and was never saved.
 @Entity
 @Table(name = "dispatch_plan")
 public class DispatchPlan {

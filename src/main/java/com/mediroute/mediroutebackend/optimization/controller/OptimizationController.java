@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 
+// This controller exposes the dispatch optimization API for choosing a supply loadout under a given vehicle capacity.
+// It routes requests to the service layer and passes the selected algorithm choice through to the optimizer.
 @RestController
 @RequestMapping("/api/optimization")
 public class OptimizationController {

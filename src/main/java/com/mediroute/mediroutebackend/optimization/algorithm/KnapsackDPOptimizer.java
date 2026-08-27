@@ -5,6 +5,8 @@ import com.mediroute.mediroutebackend.optimization.model.OptimizationResult;
 
 import java.util.*;
 
+// This optimizer uses dynamic programming to find the strongest valid item set without trying every possible combination.
+// It is the standard optimal approach for the 0/1 knapsack problem and is used as the main comparison target.
 public class KnapsackDPOptimizer {
 
     public OptimizationResult optimize(List<DispatchItem> items, int capacity) {

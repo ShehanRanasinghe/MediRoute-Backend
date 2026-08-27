@@ -2,6 +2,8 @@ package com.mediroute.mediroutebackend.optimization.model;
 
 import java.util.List;
 
+// This model stores the result of a loadout optimization job, including which items were selected and how much capacity was used.
+// The same structure is shared across algorithms so the results can be compared fairly.
 public class OptimizationResult {
 
     private List<Long> selectedItemIds;

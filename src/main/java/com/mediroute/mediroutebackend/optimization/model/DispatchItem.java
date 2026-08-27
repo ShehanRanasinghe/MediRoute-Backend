@@ -1,6 +1,8 @@
 package com.mediroute.mediroutebackend.optimization.model;
 
 
+// This model represents one medical item that can be loaded into the vehicle under a capacity limit.
+// The value and weight are used by the knapsack algorithms to decide which items best improve the dispatch outcome.
 public class DispatchItem {
 
     private Long id;

@@ -1,18 +1,6 @@
-// WHAT: A Spring service that reads every NetworkNode and RoadEdge record from Supabase (via JPA
-//       repositories) and converts them into an in-memory Graph that the routing algorithms can traverse.
-
-// WHY: DijkstraRouter and AStarRouter operate on a plain Graph object - they have no knowledge of JPA
-//      or the database. GraphLoaderService is the bridge that translates persistent DB entities into the
-//      lightweight in-memory models (Node, Edge) at application startup, so routing requests are served
-//      entirely from RAM without hitting the database on every query. Without this service, the routing
-//      module would only work on hardcoded sample data and would not satisfy the Task 1 requirement of
-//     being backed by a real Supabase database.
-
-// HOW: Annotated with @Component so Spring registers it as a bean that can be injected anywhere.
-//      RoutingService calls loadFromDatabase() on startup; the method calls networkNodeRepository.findAll()
-//      and roadEdgeRepository.findAll() to retrieve all rows, then iterates over them — converting each
-//      NetworkNode DB entity into an in-memory Node and each RoadEdge DB entity into a Graph edge —
-//      and returns the fully built Graph to the caller.
+// This service reads the saved road network from the database and turns it into the in-memory graph used by the route search.
+// It acts as the connection between the database entities and the algorithm classes that only understand plain Java objects.
+// Without this step, the routing code would have to work with database records directly and would run much slower.
 
 package com.mediroute.mediroutebackend.routing.graph; // Declares the package this class belongs to
 

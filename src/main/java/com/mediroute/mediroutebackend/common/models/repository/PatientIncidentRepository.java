@@ -8,11 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 
-/**
- * What: Provides persistence operations and status-based lookups for patient incidents.
- * Why: Keeps incident data access in one place so services do not depend on database details.
- * How: Extends Spring Data JPA's standard CRUD repository and uses derived query methods.
- */
+// This repository handles the persistence work for patient incident records.
+// Services use it to load only the items that are currently pending, assigned, or completed without touching database code directly.
+// This keeps the application logic focused on decisions instead of low-level data access.
 @Repository
 public interface PatientIncidentRepository extends JpaRepository<PatientIncident, Long> {
     /**

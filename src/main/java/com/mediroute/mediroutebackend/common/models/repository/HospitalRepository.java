@@ -1,10 +1,6 @@
-// WHAT: Spring Data JPA repository for reading and writing Hospital records.
-
-// WHY: HospitalRecommendationService loads every hospital (specialty, beds, ICU, linked GPS node)
-//      before scoring. This interface provides that access without hand-written SQL.
-
-// HOW: Extending JpaRepository gives findAll(), findById(), save(), and delete() at runtime.
-//      The node association is EAGER on the entity, so findAll() also brings name and coordinates.
+// This repository loads hospital records from the database and includes their linked map node details.
+// The decision service needs this information to calculate hospital suitability and score each option accurately.
+// It keeps the hospital access code simple and avoids manual SQL queries in the service layer.
 
 package com.mediroute.mediroutebackend.common.models.repository;
 

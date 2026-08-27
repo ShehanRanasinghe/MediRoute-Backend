@@ -1,15 +1,6 @@
-// WHAT: A plain Java object that represents one weighted directed connection between two graph nodes.
-
-// WHY: Dijkstra and A* need to read the cost of each road segment (distance and travel time) while
-//      traversing the adjacency list; this lightweight class holds exactly those two weights plus the
-//      destination node ID, with no JPA or database dependency at all.
-
-// HOW: When Graph.addEdge() is called, it creates an Edge instance and appends it to the adjacency
-//      list of the origin node. At traversal time, the router calls Graph.getNeighbors() to get the
-//      list of Edge objects, reads distanceKm as the edge weight for Dijkstra, and hands both
-//      distanceKm and travelTimeMinutes to RouteResult for the response payload.
-//      Kept intentionally separate from RoadEdge (the JPA entity) so algorithm code never touches Hibernate.
-
+// This class stores one road segment between two nodes in the network graph.
+// It holds the destination ID and the cost values so the routing algorithm can measure the journey from one point to the next.
+// The graph uses this model to build the full road network in memory.
 
 package com.mediroute.mediroutebackend.routing.model; // Declares the package this class belongs to
 

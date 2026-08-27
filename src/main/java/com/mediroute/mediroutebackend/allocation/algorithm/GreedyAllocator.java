@@ -104,9 +104,7 @@ public final class GreedyAllocator {
         );
     }
 
-    /**
-     * Checks whether a request fits within the remaining capacity.
-     */
+    // This helper checks whether the request fits before it is accepted into the allocation.
     private boolean canAllocate(
             AllocationRequest request,
             int remainingCapacity
@@ -143,9 +141,7 @@ public final class GreedyAllocator {
                 );
     }
 
-    /**
-     * Calculates the priority value received from one resource unit.
-     */
+    //Calculates the priority value received from one resource unit.
     private double calculateDensity(AllocationRequest request) {
         return (double) request.getSeverityScore()
                 / request.getResourceUnitsNeeded();
@@ -207,9 +203,7 @@ public final class GreedyAllocator {
         }
     }
 
-    /**
-     * Validates one patient request.
-     */
+    // This helper checks a single request for missing values or duplicate incident entries.
     private void validateRequest(
             AllocationRequest request,
             Set<Long> incidentIds

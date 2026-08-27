@@ -1,17 +1,6 @@
-// WHAT: A plain Java object that represents a single network node (hospital, depot, or junction)
-//       inside the in-memory graph used by the routing algorithms.
-
-// WHY: Dijkstra needs node IDs to traverse edges; A* additionally needs GPS coordinates (latitude and
-//      longitude) to compute the Haversine heuristic that estimates remaining distance to the goal.
-//      This class carries all of that data in a form the algorithms can access instantly without a
-//      database round-trip on every relaxation step.
-
-// HOW: GraphLoaderService reads every NetworkNode row from Supabase, converts each one into a Node
-//      instance, and calls Graph.addNode() to register it. Dijkstra and A* then call Graph.getNode()
-//      to retrieve Node objects during path reconstruction or heuristic computation.
-//      Deliberately kept separate from the JPA entity NetworkNode so algorithm classes have zero
-//      dependency on Hibernate — they operate purely on plain data.
-
+// This class represents one stop in the road network, such as a hospital, depot, or junction.
+// It keeps the node ID and GPS location together so the routing algorithm can move from one point to another.
+// The graph loader creates these objects from the database records before the route search begins.
 
 package com.mediroute.mediroutebackend.routing.model; // Declares the package this class belongs to
 

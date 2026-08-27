@@ -10,11 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * REST endpoints for the Network Analysis module.
- *
-
- */
+// This controller exposes the network analysis endpoints used to inspect the city road network.
+// It allows the frontend to request critical nodes, the minimum spanning backbone, and centrality rankings from the service layer.
 @RestController
 @RequestMapping("/api/network")
 public class NetworkAnalysisController {

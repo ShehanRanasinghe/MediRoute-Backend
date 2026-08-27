@@ -1,10 +1,8 @@
 package com.mediroute.mediroutebackend.common.models;
 
-/**
- * What: Lists the medical resource types managed by the system.
- * Why: Different incidents and hospitals require different resources.
- * How: Each resource uses one value to identify its purpose.
- */
+// This enum defines the types of medical resources the system can manage.
+// Each type represents a different asset, such as an ambulance or a bed, that may be needed by a patient.
+// The allocation logic uses this value to decide which resource pool should be checked for a request.
 public enum ResourceType {
     /** Emergency transport vehicle. */
     AMBULANCE,

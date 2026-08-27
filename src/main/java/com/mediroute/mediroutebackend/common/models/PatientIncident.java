@@ -4,11 +4,9 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 
-/**
- * What: Represents a reported patient emergency.
- * Why: The dispatch system needs the incident details to plan a response.
- * How: It stores the location, severity, status, and assigned response details.
- */
+// This entity represents a reported medical emergency that needs a response plan.
+// It keeps the patient location, condition type, severity score, and current dispatch state.
+// The incident record connects the decision, allocation, and routing services so they can process one emergency together.
 @Entity
 @Table(name = "patient_incident")
 public class PatientIncident {

@@ -5,15 +5,8 @@ import com.mediroute.mediroutebackend.decision.model.RecommendationResult;
 
 import java.util.*;
 
-/**
- * Two ways to select the top-k highest-scoring hospitals from a scored
- * candidate list, implemented side by side so they can be directly
- * compared. IMPORTANT: unlike Task 2's Greedy vs Knapsack DP (which can
- * genuinely disagree), these two algorithms ALWAYS produce the exact same
- * top-k set - the comparison here is purely about SPEED, not correctness
- * or optimality (see docs/07-experimental-evaluation.md).
- *
- */
+// This recommender chooses the best hospitals from a scored list using two strategies for direct comparison.
+// The heap version is designed for speed when the user asks for only a small top-k list.
 public class HospitalRecommender {
 
     /**

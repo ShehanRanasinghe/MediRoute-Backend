@@ -1,6 +1,8 @@
 package com.mediroute.mediroutebackend.optimization.model;
 
 
+// This request model captures the vehicle capacity and the algorithm selection for the optimization run.
+// It is sent by the frontend when a dispatcher wants a loadout recommendation or comparison.
 public class OptimizationRequestDTO {
 
     private int vehicleCapacity;

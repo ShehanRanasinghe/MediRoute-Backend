@@ -12,12 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * The single API surface the real-world frontend actually talks to for
- * the main dispatcher workflow. The 5 modules' own controllers
- * (RoutingController, AllocationController, etc.) still exist underneath
- * and still work - this controller just orchestrates them together.
- */
+// This controller is the main dispatcher API and coordinates the full incident workflow across the system.
+// It sends the report to the orchestration layer so the decision, allocation, routing, and optimization services can work together.
 @RestController
 @RequestMapping("/api/incident")
 public class IncidentController {

@@ -1,6 +1,7 @@
 package com.mediroute.mediroutebackend.network.model;
 
-/** One node's degree centrality score. */
+// This model stores one node's connectivity score and its associated label in the centrality ranking.
+// It is used to display which locations are most connected within the hospital and road network.
 public class NodeCentrality {
 
     private Long nodeId;

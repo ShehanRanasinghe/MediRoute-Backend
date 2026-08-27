@@ -2,11 +2,9 @@ package com.mediroute.mediroutebackend.common.models;
 
 import jakarta.persistence.*;
 
-/**
- * What: Represents an ambulance depot and its ambulance capacity.
- * Why: The dispatch system needs to know which depots can provide an ambulance.
- * How: It links a depot to a network node and stores total and available counts.
- */
+// This entity stores the ambulance depot information used during dispatch planning.
+// It links each depot to a network location and tracks how many ambulances are available at that moment.
+// The allocation and routing modules use this data when they need to assign a moving resource to an incident.
 @Entity
 @Table(name = "ambulance_depot")
 public class AmbulanceDepot {

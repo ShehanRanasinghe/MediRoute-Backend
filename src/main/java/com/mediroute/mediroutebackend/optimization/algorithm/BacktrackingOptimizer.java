@@ -6,6 +6,8 @@ import com.mediroute.mediroutebackend.optimization.model.OptimizationResult;
 import java.util.*;
 import java.util.stream.Collectors;
 
+// This optimizer searches the full decision tree for the best possible knapsack solution within the capacity limit.
+// It is slower than the greedy and dynamic-programming methods, but it is useful as an optimal benchmark for smaller item sets.
 public class BacktrackingOptimizer {
 
     private int bestValue;

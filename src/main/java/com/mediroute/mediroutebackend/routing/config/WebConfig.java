@@ -1,15 +1,6 @@
-// WHAT: Spring MVC configuration class that enables Cross-Origin Resource Sharing (CORS) for all
-//       /api/** endpoints so the Next.js frontend can call the Spring Boot backend from a browser.
-
-// WHY: Browsers enforce the Same-Origin Policy — by default they block JavaScript fetch/XHR requests
-//      from one origin (localhost:3000, the Next.js dev server) to a different origin (localhost:8080,
-//      the Spring Boot API). Without this CORS configuration the frontend routing page would receive
-//      a network error on every API call and no route results would be displayed.
-
-// HOW: Implementing WebMvcConfigurer and overriding addCorsMappings() lets Spring MVC intercept
-//      preflight OPTIONS requests and inject the correct Access-Control-Allow-* headers automatically.
-//      The mapping covers all paths under /api/**, allows requests from localhost:3000, and permits
-//      the four HTTP methods used by the routing endpoints (GET for ping, POST for route queries).
+// This configuration allows the frontend to call the backend API from a different local port during development.
+// It sets the CORS policy so browser requests to the Spring application are accepted when the UI runs on localhost:3000.
+// This is needed because the frontend and backend are separate services and browser security would otherwise block the requests.
 
 package com.mediroute.mediroutebackend.routing.config; // Declares the package this class belongs to
 

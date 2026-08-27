@@ -1,10 +1,8 @@
 package com.mediroute.mediroutebackend.common.models;
 
-/**
- * What: Lists the facility types that can own a medical resource.
- * Why: A resource must be connected to the correct kind of owner.
- * How: The selected value defines how the resource owner ID is interpreted.
- */
+// This enum defines the facility type that owns a medical resource.
+// It tells the system whether a resource belongs to a hospital or a depot.
+// That information is important because the same owner ID value is interpreted differently depending on the owner type.
 public enum OwnerType {
     /** The resource belongs to a hospital. */
     HOSPITAL,

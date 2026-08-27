@@ -1,6 +1,7 @@
 package com.mediroute.mediroutebackend.incident.model;
 
-/** One row in the dashboard's hospital bed availability table. Owner: Integration */
+// This model represents one hospital row in the dashboard table showing current bed usage and capacity.
+// It is used by the incident summary to give the control room a quick view of hospital availability.
 public class HospitalStatusView {
 
     private Long hospitalId;

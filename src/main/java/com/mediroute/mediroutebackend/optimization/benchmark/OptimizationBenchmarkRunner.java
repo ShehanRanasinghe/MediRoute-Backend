@@ -13,6 +13,8 @@ import com.mediroute.mediroutebackend.optimization.algorithm.KnapsackDPOptimizer
 import com.mediroute.mediroutebackend.optimization.model.DispatchItem;
 import com.mediroute.mediroutebackend.optimization.model.OptimizationResult;
 
+// This benchmark compares the speed and quality of greedy, dynamic programming, and backtracking optimizers across different item counts.
+// It is used to show when the exact solver is worth the extra computation and when the faster heuristic is enough.
 public class OptimizationBenchmarkRunner {
 
     private static final int[] SMALL_SIZES = {10, 15, 20, 25};

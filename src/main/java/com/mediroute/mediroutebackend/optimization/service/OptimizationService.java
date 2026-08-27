@@ -17,16 +17,21 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 
+// This service gathers the pending medical loadout items and chooses the optimization algorithm that best fits the capacity request.
+// The service is the bridge between the supply database and the knapsack-style algorithms used for dispatch planning.
 @Service
 public class OptimizationService {
 
+    // The repository tracks which items are still waiting to be assigned to a vehicle or dispatch bundle.
     @Autowired
     private SupplyItemRepository supplyItemRepository;
 
+    // These optimizer instances allow the same pending item set to be evaluated under different strategies.
     private final KnapsackDPOptimizer dpOptimizer = new KnapsackDPOptimizer();
     private final GreedyOptimizer greedyOptimizer = new GreedyOptimizer();
     private final BacktrackingOptimizer backtrackingOptimizer = new BacktrackingOptimizer();
 
+    // This method selects the requested algorithm and returns the best supply combination under the set capacity.
     public OptimizationResult optimize(int vehicleCapacity, String algorithm) {
         List<DispatchItem> items = loadPendingItems();
         String choice = algorithm == null ? "dp" : algorithm.toLowerCase();
@@ -38,6 +43,7 @@ public class OptimizationService {
         };
     }
 
+    // This method runs the main algorithms together so the system can show a side-by-side comparison of outcome and time.
     public Map<String, OptimizationResult> compareAll(int vehicleCapacity) {
         List<DispatchItem> items = loadPendingItems();
 
@@ -55,10 +61,12 @@ public class OptimizationService {
         return results;
     }
 
+    // This list is used by the UI and the optimizer to show which items are still waiting for assignment.
     public List<SupplyItem> getPendingItems() {
         return supplyItemRepository.findByStatus(SupplyItemStatus.PENDING);
     }
 
+    // Each database item is mapped into a light dispatch item so the knapsack algorithms can work on plain Java objects.
     private List<DispatchItem> loadPendingItems() {
         return supplyItemRepository.findByStatus(SupplyItemStatus.PENDING).stream()
                 .map(item -> new DispatchItem(item.getId(), item.getItemName(), item.getUrgencyValue(), item.getSizeCost()))

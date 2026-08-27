@@ -10,13 +10,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-/**
- * Standalone benchmark for the experimental evaluation chapter (Chapter 8).
- * NOT a Spring bean - run directly (right-click -> Run in IntelliJ).
- *
- * Confirms the theoretical O(V+E) claim for articulation point detection
- * empirically, and shows how MST construction time grows with graph size.
- */
+// This benchmark compares the performance of critical-node detection and minimum spanning tree generation across larger graph sizes.
+// It is used to validate that the network algorithms scale in the expected way for real-world road data.
+// Confirms the theoretical O(V+E) claim for articulation point detection empirically, and shows how MST construction time grows with graph size.
 public class NetworkBenchmarkRunner {
 
     private static final int[] GRAPH_SIZES = {50, 200, 500, 1000, 5000};

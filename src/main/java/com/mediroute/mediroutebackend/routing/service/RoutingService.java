@@ -21,9 +21,11 @@ import java.util.Map;
 @Service
 public class RoutingService {
 
+    // The graph loader reads the saved road network from the database and converts it into an in-memory graph.
     @Autowired
     private GraphLoaderService graphLoaderService;
 
+    // These router instances are reused so each request can run either Dijkstra or A* without rebuilding the objects.
     private final DijkstraRouter dijkstraRouter = new DijkstraRouter();
     private final AStarRouter aStarRouter = new AStarRouter();
     private Graph graph;

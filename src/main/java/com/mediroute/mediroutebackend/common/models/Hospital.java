@@ -2,11 +2,9 @@ package com.mediroute.mediroutebackend.common.models;
 
 import jakarta.persistence.*;
 
-/**
- * What: Represents a hospital and its available treatment capacity.
- * Why: The dispatch system needs a suitable hospital for each patient.
- * How: It links the hospital to a network node and tracks its specialty and beds.
- */
+// This entity represents a hospital and the treatment capacity it can provide.
+// It links each hospital to a network node and keeps the bed totals and specialty details that the decision engine uses.
+// The recommendation and incident flow rely on this record to choose a suitable destination for a patient.
 @Entity
 @Table(name = "hospital")
 public class Hospital {

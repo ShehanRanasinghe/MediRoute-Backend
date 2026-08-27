@@ -9,9 +9,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
-/**
- * REST endpoints for the Intelligent Decision Module.
- */
+// This controller exposes the hospital recommendation API for the frontend and external clients.
+// It takes a patient requirement, calls the decision service, and returns ranked hospital options in JSON format.
 @RestController
 @RequestMapping("/api/decision")
 public class RecommendationController {

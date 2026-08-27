@@ -1,5 +1,6 @@
 package com.mediroute.mediroutebackend.network.model;
 
+// This model stores one edge in the minimum spanning tree so the result can be displayed clearly to the user.
 public class MSTEdgeDTO {
 
     private Long fromNodeId;

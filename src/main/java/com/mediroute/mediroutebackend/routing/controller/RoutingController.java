@@ -1,15 +1,6 @@
-// WHAT: Spring MVC REST controller that exposes three HTTP endpoints for the Route Optimization module:
-//       a health-check ping, a shortest-path query, and a side-by-side algorithm comparison.
-
-// WHY: The Next.js frontend and any external client need a well-defined HTTP API to trigger routing
-//      calculations without knowing anything about the internal algorithm or database structure.
-//      This controller is the single entry point that receives HTTP requests and delegates all
-//      computation to RoutingService, keeping the API layer thin and the business logic separate.
-
-// HOW: Annotated with @RestController so Spring automatically serialises return values to JSON.
-//      @RequestMapping("/api/routing") prefixes all endpoint paths with /api/routing.
-//      Each method is mapped to a specific HTTP verb + path via @GetMapping / @PostMapping.
-//      RoutingService is injected via @Autowired and handles all algorithm execution and graph access.
+// This controller exposes the routing API so the frontend can request route data without working with the algorithm internals.
+// It receives HTTP requests, passes them to the service layer, and returns the result in JSON format.
+// This keeps the user interface separate from the route calculation logic and makes the module easier to test.
 
 package com.mediroute.mediroutebackend.routing.controller; // Declares the package this class belongs to
 

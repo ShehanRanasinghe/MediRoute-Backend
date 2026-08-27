@@ -1,9 +1,7 @@
 package com.mediroute.mediroutebackend.allocation.model;
 
-/**
- * Represents an incident and the resources it needs during allocation.
- * Allocation algorithms use its severity and resource cost to prioritize incidents.
- */
+// This model holds a single emergency request and the resources it needs during allocation.
+// The severity and resource requirement are used by the greedy and knapsack algorithms to decide which incidents should be served first.
 public class AllocationRequest {
 
     private Long incidentId;

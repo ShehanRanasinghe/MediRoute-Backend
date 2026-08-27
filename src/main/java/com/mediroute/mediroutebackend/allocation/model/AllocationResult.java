@@ -2,10 +2,8 @@ package com.mediroute.mediroutebackend.allocation.model;
 
 import java.util.List;
 
-/**
- * Contains the decisions and performance details produced by an allocation algorithm.
- * A common result type makes different allocation strategies easy to compare.
- */
+// This model stores the outcome of an allocation run, including the selected incidents and the execution time of the algorithm.
+// A shared result object allows the system to compare greedy and dynamic-programming strategies in a consistent format.
 public class AllocationResult {
 
     private List<Long> selectedIncidentIds;

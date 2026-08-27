@@ -1,14 +1,6 @@
-// WHAT: In-memory weighted directed graph that represents the entire hospital/road network for the routing module.
-
-// WHY: Dijkstra and A* need a data structure they can traverse in microseconds without hitting the database
-//      on every step; this class holds all nodes and edges in RAM so algorithms run at full speed.
-
-// HOW: Uses an adjacency list (HashMap<Long, List<Edge>>) instead of an adjacency matrix because the
-//      city road network is sparse - each node connects to only a few neighbours, so an adjacency list
-//      costs O(V + E) memory versus O(V2) for a matrix. GraphLoaderService populates this graph at
-//      startup by reading NetworkNode and RoadEdge rows from Supabase, then passes it to the routers.
-//      The static generateRandomConnected() factory method creates synthetic graphs for BenchmarkRunner.
-
+// This class stores the entire road network in memory so the shortest-path algorithms can search it quickly.
+// It keeps all nodes and their connected road segments together, which is the structure Dijkstra and A* need for route calculation.
+// The graph is built from the database at startup and used as the shared data source for routing requests.
 
 package com.mediroute.mediroutebackend.routing.graph; // Declares the package this class belongs to
 

@@ -18,10 +18,8 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-/**
- * Exposes resource-allocation operations over HTTP and translates invalid client
- * input into {@code 400 Bad Request} responses before invoking the service layer.
- */
+// This controller exposes the allocation API so clients can request a resource assignment without interacting with the allocator logic directly.
+// It validates incoming values and returns clear HTTP errors when the request is invalid or incomplete.
 @RestController
 @RequestMapping("/api/allocation")
 public class AllocationController {

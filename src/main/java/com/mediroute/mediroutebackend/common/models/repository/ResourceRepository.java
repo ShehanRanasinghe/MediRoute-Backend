@@ -8,22 +8,15 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-/**
- * What: Provides persistence operations and filtered lookups for medical resources.
- * Why: Centralizes resource data access so allocation logic remains separate from persistence.
- * How: Extends Spring Data JPA's standard CRUD repository and uses derived query methods.
- */
+// This repository handles the database access for medical resource records.
+// It keeps the persistence logic separate from the allocation logic, which makes the code easier to maintain.
+// The service layer calls this repository whenever it needs to inspect the live inventory.
 @Repository
 public interface ResourceRepository extends JpaRepository<Resource, Long> {
-    /**
-     * What: Retrieves resources that match both a resource type and an operational status.
-     * Why: Enables callers to find suitable resources for allocation without filtering in memory.
-     * How: Spring Data JPA derives the query from the
-     * {@code findByResourceTypeAndStatus} method name.
-     *
-     * @param resourceType the category of resource to retrieve
-     * @param status the operational status used to filter resources
-     * @return matching resources, or an empty list when no resources satisfy both criteria
-     */
+    // This query returns only resources that match the selected type and current status.
+    // The allocation service uses this to find usable ambulance, bed, or ventilator records quickly.
+    // @param resourceType the resource category to search for
+    // @param status the resource availability state to filter by
+    // @return the matching resource list for that pool
     List<Resource> findByResourceTypeAndStatus(ResourceType resourceType, ResourceStatus status);
 }

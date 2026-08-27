@@ -1,10 +1,8 @@
 package com.mediroute.mediroutebackend.common.models;
 
-/**
- * What: Lists the operational states of a medical resource.
- * Why: Dispatchers must know whether a resource is ready for use.
- * How: The current value controls whether the resource can be assigned.
- */
+// This enum shows whether a medical resource is ready to use or currently unavailable.
+// The system checks this value before assigning a resource so it does not send an item that is already occupied or broken.
+// It helps keep the dispatch process realistic and safe.
 public enum ResourceStatus {
     /** Ready to be assigned to an incident. */
     AVAILABLE,

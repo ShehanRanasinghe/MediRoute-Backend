@@ -5,6 +5,8 @@ import com.mediroute.mediroutebackend.optimization.model.DispatchItem;
 import com.mediroute.mediroutebackend.optimization.model.OptimizationResult;
 
 
+// This optimizer picks items by the best value-to-weight ratio so it can quickly fill the available capacity.
+// It is fast and simple, but it may not always produce the absolute best combination when the item mix is difficult.
 public class GreedyOptimizer {
 
     public OptimizationResult optimize(List<DispatchItem> items, int capacity) {

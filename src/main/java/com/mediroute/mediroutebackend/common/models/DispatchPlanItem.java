@@ -2,7 +2,7 @@ package com.mediroute.mediroutebackend.common.models;
 
 import jakarta.persistence.*;
 
-/** One supply item included in a saved dispatch plan.*/
+//One supply item included in a saved dispatch plan.
 @Entity
 @Table(name = "dispatch_plan_item")
 public class DispatchPlanItem {

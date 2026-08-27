@@ -3,11 +3,9 @@ package com.mediroute.mediroutebackend.common.models;
 import jakarta.persistence.*;
 
 
-/**
- * What: Represents a medical asset managed by the dispatch system.
- * Why: The system must know which resources exist and whether they can be used.
- * How: It stores the resource type, owner, and current availability status.
- */
+// This entity represents a medical resource that can be assigned to an incident or patient.
+// It records the resource type, owner, and whether the item is currently available for service.
+// The allocation engine uses this record to check which items are usable before assigning them.
 @Entity
 @Table(name = "resource")
 public class Resource {
