@@ -19,6 +19,10 @@ public class PatientIncident {
     @Column(name = "patient_reference", length = 100)
     private String patientReference;
 
+    /** Contact number used to verify that a reported incident is genuine. */
+    @Column(name = "phone_number", length = 20)
+    private String phoneNumber;
+
     @Column(nullable = false)
     private double latitude;
 
@@ -70,6 +74,16 @@ public class PatientIncident {
     /** Updates the external reference used to identify the patient. */
     public void setPatientReference(String patientReference) {
         this.patientReference = patientReference;
+    }
+
+    /** Returns the contact number used to verify this incident report. */
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    /** Updates the contact number used to verify this incident report. */
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     /** Returns the latitude of the reported incident location. */

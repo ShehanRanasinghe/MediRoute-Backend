@@ -68,6 +68,7 @@ public class IncidentOrchestrationService {
         // Step 1: persist the incident as PENDING
         PatientIncident incident = new PatientIncident();
         incident.setPatientReference(request.getPatientReference());
+        incident.setPhoneNumber(request.getPhoneNumber());
         incident.setLatitude(request.getLatitude());
         incident.setLongitude(request.getLongitude());
         incident.setConditionType(request.getConditionType());
@@ -162,6 +163,7 @@ public class IncidentOrchestrationService {
         DashboardSummary summary = new DashboardSummary();
 
         summary.setPendingIncidents(patientIncidentRepository.findByStatus(IncidentStatus.PENDING).size());
+        summary.setOngoingIncidents(patientIncidentRepository.findByStatus(IncidentStatus.ASSIGNED).size());
 
         // FIX: previously read AmbulanceDepot.availableAmbulances, a static
         // seeded number that never changed. Now counts AVAILABLE Resource
@@ -237,5 +239,27 @@ public class IncidentOrchestrationService {
         view.setTotalCapacity(0);
         view.setNote(reason);
         return view;
+    }
+
+    /**
+     * Full incident list for the admin panel - includes phone numbers so an
+     * admin can verify a report is genuine (e.g. calling back before
+     * committing more resources to it). Ordered newest-first.
+     */
+    public List<IncidentSummaryView> getAllIncidents() {
+        return patientIncidentRepository.findAll().stream()
+                .sorted((a, b) -> b.getCreatedAt().compareTo(a.getCreatedAt()))
+                .map(i -> new IncidentSummaryView(
+                        i.getId(),
+                        i.getPatientReference(),
+                        i.getPhoneNumber(),
+                        i.getConditionType(),
+                        i.getSeverityScore(),
+                        i.getStatus().name(),
+                        i.getLatitude(),
+                        i.getLongitude(),
+                        i.getCreatedAt()
+                ))
+                .collect(Collectors.toList());
     }
 }

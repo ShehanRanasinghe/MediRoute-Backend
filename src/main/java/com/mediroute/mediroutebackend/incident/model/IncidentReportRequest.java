@@ -6,6 +6,7 @@ package com.mediroute.mediroutebackend.incident.model;
 public class IncidentReportRequest {
 
     private String patientReference;
+    private String phoneNumber;
     private String conditionType;
     private int severityScore;
     private double latitude;
@@ -15,6 +16,8 @@ public class IncidentReportRequest {
 
     public String getPatientReference() { return patientReference; }
     public void setPatientReference(String patientReference) { this.patientReference = patientReference; }
+    public String getPhoneNumber() { return phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { this.phoneNumber = phoneNumber; }
     public String getConditionType() { return conditionType; }
     public void setConditionType(String conditionType) { this.conditionType = conditionType; }
     public int getSeverityScore() { return severityScore; }

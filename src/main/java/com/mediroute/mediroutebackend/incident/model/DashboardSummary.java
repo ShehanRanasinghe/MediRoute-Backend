@@ -10,6 +10,7 @@ import java.util.List;
 public class DashboardSummary {
 
     private int pendingIncidents;
+    private int ongoingIncidents;
     private int availableAmbulances;
     private int criticalNodeCount;
     private List<HospitalStatusView> hospitals;
@@ -18,6 +19,8 @@ public class DashboardSummary {
 
     public int getPendingIncidents() { return pendingIncidents; }
     public void setPendingIncidents(int pendingIncidents) { this.pendingIncidents = pendingIncidents; }
+    public int getOngoingIncidents() { return ongoingIncidents; }
+    public void setOngoingIncidents(int ongoingIncidents) { this.ongoingIncidents = ongoingIncidents; }
     public int getAvailableAmbulances() { return availableAmbulances; }
     public void setAvailableAmbulances(int availableAmbulances) { this.availableAmbulances = availableAmbulances; }
     public int getCriticalNodeCount() { return criticalNodeCount; }
